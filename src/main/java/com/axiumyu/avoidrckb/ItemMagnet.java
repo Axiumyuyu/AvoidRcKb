@@ -4,12 +4,10 @@ import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityPoseChangeEvent;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.Collection;
 
 import static com.axiumyu.avoidrckb.AxiumyuUtil.MAGNET;
-import static com.axiumyu.avoidrckb.AxiumyuUtil.contains;
 
 public class ItemMagnet implements Listener {
 
