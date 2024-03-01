@@ -1,0 +1,5 @@
+name: AvoidRcKb
+version: '${project.version}'
+main: com.axiumyu.avoidrckb.AvoidRcKb
+api-version: '1.20'
+load: STARTUP
