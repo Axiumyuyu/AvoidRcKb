@@ -45,7 +45,7 @@ public class AxiumyuUtil{
         Player pl = (Player) ep.getEntity();
         for (int i=0;i<=pl.getInventory().getSize();i++){
             ItemStack is =pl.getInventory().getItem(i);
-            if (is != null && AvoidRcKb.equalsIE(is,MAGNET)) {
+            if (is != null && AvoidRcKb.equalsIE(is,item)) {
                 contain=true;
                 break;
 
@@ -87,7 +87,7 @@ public class AxiumyuUtil{
             ItemMeta im = null;
             im.addAttributeModifier(att,modifier);
             item.setItemMeta(im);
-        } catch (Exception e) {
+        } catch (Exception ignored) {
 
         }
         return item;
