@@ -39,6 +39,8 @@ public final class AvoidRcKb extends JavaPlugin implements Listener{
         saveConfig();
         ItemMagnetDistance=config.getInt("ItemMagnetDistance");
 
+        Objects.requireNonNull(this.getCommand("Distance")).setExecutor(new CommandDistance());
+
         ThrowableFireBall tb = new ThrowableFireBall();
         ItemMagnet im =new ItemMagnet();
         WindStaff ws = new WindStaff();

@@ -1,6 +1,5 @@
 package com.axiumyu.avoidrckb;
 
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
