@@ -3,6 +3,7 @@ package com.axiumyu.avoidrckb;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.SoundCategory;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -15,6 +16,7 @@ import java.util.Objects;
 import static com.axiumyu.avoidrckb.AxiumyuUtil.*;
 
 public final class AvoidRcKb extends JavaPlugin implements Listener{
+    public static int ItemMagnetDistance=10;
 
     public static boolean equalsIE(ItemStack item1, ItemStack item2){
         boolean f1 = item1.getType().equals(item2.getType());
@@ -29,6 +31,14 @@ public final class AvoidRcKb extends JavaPlugin implements Listener{
     @Override
     public void onEnable() {
         // Plugin startup logic
+        saveResource("config.yml",false);
+        saveDefaultConfig();
+        FileConfiguration config = this.getConfig();
+        config.addDefault("ItemMagnetDistance",10);
+        config.options().copyDefaults(true);
+        saveConfig();
+        ItemMagnetDistance=config.getInt("ItemMagnetDistance");
+
         ThrowableFireBall tb = new ThrowableFireBall();
         ItemMagnet im =new ItemMagnet();
         WindStaff ws = new WindStaff();

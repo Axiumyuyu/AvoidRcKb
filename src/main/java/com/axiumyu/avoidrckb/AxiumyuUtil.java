@@ -17,6 +17,10 @@ import java.util.UUID;
 import static java.lang.Math.sqrt;
 
 public class AxiumyuUtil{
+
+    /* 使用genItem方法生成特定的特殊物品在其他类使用
+    * 其他位置不产生新物品*/
+
     public static final ItemStack MAGNET = genItem(Material.PLAYER_HEAD,Enchantment.LOOT_BONUS_BLOCKS,3);
     public static final ItemStack JST= genItem(Material.CREEPER_HEAD,Enchantment.PROTECTION_ENVIRONMENTAL,4);
     public static final ItemStack WINDSTAFF = genItem(Material.STICK,Enchantment.PROTECTION_FALL,4);
