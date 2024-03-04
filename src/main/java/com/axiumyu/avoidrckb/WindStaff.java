@@ -15,15 +15,15 @@ import static java.lang.Math.*;
 public class WindStaff implements Listener {
 
     @EventHandler
-    public void onStickClick(PlayerInteractEvent sk){
+    public void onStickClick(PlayerInteractEvent sk) {
         try {
-            if(sk.getAction().isRightClick() && AvoidRcKb.equalsIE(sk.getItem(),WINDSTAFF)){
-                Player pl=sk.getPlayer();
+            if (sk.getAction().isRightClick() && AvoidRcKb.equalsIE(sk.getItem(), WINDSTAFF)) {
+                Player pl = sk.getPlayer();
                 float yaw = pl.getYaw();
                 float pitch = pl.getPitch();
                 GameMode plgm = pl.getGameMode();
 
-                if (plgm!=GameMode.SPECTATOR) {
+                if (plgm != GameMode.SPECTATOR) {
 
                     if (pl.getFoodLevel() > 0) {
                         Vector vec = pl.getVelocity();
