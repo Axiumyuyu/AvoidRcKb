@@ -15,6 +15,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.UUID;
 
 import static java.lang.Math.sqrt;
+import static net.kyori.adventure.text.Component.text;
 
 public class AxiumyuUtil{
 
@@ -25,10 +26,31 @@ public class AxiumyuUtil{
     public static final ItemStack JST= genItem(Material.CREEPER_HEAD,Enchantment.PROTECTION_ENVIRONMENTAL,4);
     public static final ItemStack WINDSTAFF = genItem(Material.STICK,Enchantment.PROTECTION_FALL,4);
     public static final ItemStack FIREBALL = genItem(Material.FIRE_CHARGE,Enchantment.PROTECTION_FIRE,4);
+    public static final ItemStack book0 = new ItemStack(Material.KNOWLEDGE_BOOK);
+    public static final ItemStack book1 =genItem(Material.KNOWLEDGE_BOOK, Enchantment.DURABILITY,1);
+    public static final ItemStack book2 =genItem(Material.KNOWLEDGE_BOOK, Enchantment.DURABILITY,2);
+    public static final ItemStack book3 =genItem(Material.KNOWLEDGE_BOOK, Enchantment.DURABILITY,3);
+    public static final ItemStack book4 =genItem(Material.KNOWLEDGE_BOOK, Enchantment.DURABILITY,4);
+
+
     public static String getComponentMessage(Component com){
         StringBuilder stb=new StringBuilder(com.toString());
         int end= stb.indexOf("\"",27);
         return stb.subSequence(27,end).toString();
+    }
+
+    public static Component combineString(Component com , String str){
+        return text()
+                .append(com)
+                .content(str).style(com.style())
+                .build();
+    }
+
+    public static Component combineString(Component com , int num){
+        return text()
+                .append(com)
+                .content(String.valueOf(num)).style(com.style())
+                .build();
     }
 
     public static double getEntityDistance(Entity e1, Entity e2){
@@ -62,6 +84,12 @@ public class AxiumyuUtil{
         } catch (Exception ignored) {
 
         }
+        return item;
+    }
+
+    public static ItemStack genItem(Material mat, int amount){
+        ItemStack item = new ItemStack(mat);
+        item.setAmount(amount);
         return item;
     }
 
