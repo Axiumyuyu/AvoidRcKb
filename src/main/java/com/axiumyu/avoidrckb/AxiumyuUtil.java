@@ -56,7 +56,7 @@ public class AxiumyuUtil {
                 .build();
     }
 
-    public static Component combineString(String str,Component com) {
+    public static Component combineString(String str, Component com) {
         return text()
                 .append(Component.text(str).style(com.style()))
                 .append(com)
@@ -70,7 +70,7 @@ public class AxiumyuUtil {
                 .build();
     }
 
-    public static Component combineString( int num,Component com) {
+    public static Component combineString(int num, Component com) {
         return text()
                 .append(Component.text(num).style(com.style()))
                 .append(com)

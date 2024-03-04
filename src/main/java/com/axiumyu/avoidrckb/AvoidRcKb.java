@@ -85,7 +85,7 @@ public final class AvoidRcKb extends JavaPlugin implements Listener {
         try {
             ie.setCancelled(true);
 
-            pl.sendActionBar(combineString(Strings.DoNotRC,ie.getItem().getI18NDisplayName()));
+            pl.sendActionBar(combineString(Strings.DoNotRC, ie.getItem().getI18NDisplayName()));
             pl.playSound(pl.getLocation(), Sound.ENTITY_CAT_AMBIENT, SoundCategory.AMBIENT, 1.0F, 1.0F);
         } catch (Exception ignored) {
 
