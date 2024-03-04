@@ -1,10 +1,7 @@
 package com.axiumyu.avoidrckb;
 
 import com.axiumyu.avoidrckb.String.Strings;
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.Sound;
-import org.bukkit.SoundCategory;
+import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -12,15 +9,42 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapelessRecipe;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import static com.axiumyu.avoidrckb.AxiumyuUtil.*;
-import static com.axiumyu.avoidrckb.CompressBook.slp;
 
 public final class AvoidRcKb extends JavaPlugin implements Listener{
     public static int ItemMagnetDistance=10;
-    public static Plugin instance;
+/*
+    static ShapelessRecipe b1 =CreateShapelessRecipe(2,book0,book1);
+
+    static ShapelessRecipe b2 =CreateShapelessRecipe(2,book1,book2);
+
+    static ShapelessRecipe b3 =CreateShapelessRecipe(2,book2,book3);
+
+    static ShapelessRecipe b4 =CreateShapelessRecipe(2,book3,book4);
+
+    static ShapelessRecipe b24 =CreateShapelessRecipe(4,book0,book2);
+
+    static ShapelessRecipe b34 = CreateShapelessRecipe(4,book1,book3);
+
+    static ShapelessRecipe b44 = CreateShapelessRecipe(4,book2,book4);
+
+    static ShapelessRecipe b38 =CreateShapelessRecipe(8,book0,book3);
+
+    static ShapelessRecipe b48 = CreateShapelessRecipe(8,book1,book4);
+
+    static ShapelessRecipe d1 = CreateShapelessRecipe(1,book1,genItem(Material.KNOWLEDGE_BOOK,2));
+
+    static ShapelessRecipe d2 = CreateShapelessRecipe(1,book2,genItem(Material.KNOWLEDGE_BOOK,4));
+
+    static ShapelessRecipe d3 = CreateShapelessRecipe(1,book1,genItem(Material.KNOWLEDGE_BOOK,8));
+
+    static ShapelessRecipe d4 = CreateShapelessRecipe(1,book1,genItem(Material.KNOWLEDGE_BOOK,16));
+
+    static ShapelessRecipe[] slp={b1,b2,b3,b4,b24,b38,b34,b44,b48,d1,d2,d3,d4};
+*/
+
 
     public static boolean equalsIE(ItemStack item1, ItemStack item2){
         boolean f1 = item1.getType().equals(item2.getType());
@@ -32,8 +56,14 @@ public final class AvoidRcKb extends JavaPlugin implements Listener{
         return (m1==m2);
     }
 
+
+
+
     @Override
     public void onEnable() {
+        NamespacedKey nas = new NamespacedKey(this, "a");
+        ShapelessRecipe recipe = new ShapelessRecipe(nas, new ItemStack(Material.NETHERITE_INGOT));
+        recipe.addIngredient(2,book0);
         // Plugin startup logic
         saveResource("config.yml",false);
         saveDefaultConfig();
@@ -43,10 +73,9 @@ public final class AvoidRcKb extends JavaPlugin implements Listener{
         saveConfig();
         ItemMagnetDistance=config.getInt("ItemMagnetDistance");
 
-        try {
-            for (ShapelessRecipe sp :slp) {getServer().addRecipe(sp);}
-        } catch (Exception e) {
-            e.printStackTrace();
+        CompressBook cb =new CompressBook(nas);
+        for (ShapelessRecipe sp : cb.slp){
+            Bukkit.addRecipe(sp);
         }
 
         this.getCommand("distance").setExecutor(new CommandDistance());
@@ -63,7 +92,7 @@ public final class AvoidRcKb extends JavaPlugin implements Listener{
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        instance = null;
+
         Bukkit.resetRecipes();
         getLogger().info("插件已卸载！");
     }
