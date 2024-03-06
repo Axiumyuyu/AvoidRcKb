@@ -28,4 +28,8 @@ public final class Strings {
     public static final Component DistanceSet = text()
             .content("物品磁铁能够吸附的距离设置为：").color(color(0xFA40))
             .build();
+
+    public static final Component EatApple = text()
+            .content("吃掉了一个真•附魔金苹果！").color(color(0xCA00FF))
+            .build();
 }

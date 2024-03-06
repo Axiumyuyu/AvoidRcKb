@@ -20,7 +20,7 @@ public class ItemMagnet implements Listener {
             if (ep.getEntityType() == EntityType.PLAYER && ep.getPose().equals(Pose.SNEAKING)) {
                 Player pl = (Player) ep.getEntity();
 
-                if (AxiumyuUtil.contains(ep, MAGNET)) {
+                if (AxiumyuUtil.contains(pl, MAGNET)) {
                     Collection<Entity> entityNearBy = pl.getWorld().getEntitiesByClasses(Item.class);
 
                     for (Entity et : entityNearBy) {

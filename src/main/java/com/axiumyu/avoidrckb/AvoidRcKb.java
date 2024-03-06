@@ -1,5 +1,7 @@
 package com.axiumyu.avoidrckb;
 
+import com.axiumyu.avoidrckb.Creeper.CreeperFindPath;
+import com.axiumyu.avoidrckb.Creeper.CreeperSpeed;
 import com.axiumyu.avoidrckb.String.Strings;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -50,10 +52,16 @@ public final class AvoidRcKb extends JavaPlugin implements Listener {
         ThrowableFireBall tb = new ThrowableFireBall();
         ItemMagnet im = new ItemMagnet();
         WindStaff ws = new WindStaff();
-        getServer().getPluginManager().registerEvents(this, this);
+        RealApple ra =new RealApple();
+        CreeperSpeed cs =new CreeperSpeed();
+        CreeperFindPath cp =new CreeperFindPath();
+        getServer().getPluginManager().registerEvents(cs, this);
+        getServer().getPluginManager().registerEvents(cp, this);
+        getServer().getPluginManager().registerEvents(ra, this);
         getServer().getPluginManager().registerEvents(tb, this);
         getServer().getPluginManager().registerEvents(ws, this);
         getServer().getPluginManager().registerEvents(im, this);
+        getServer().getPluginManager().registerEvents(this, this);
     }
 
     @Override
