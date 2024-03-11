@@ -33,10 +33,7 @@ public class AxiumyuUtil {
 
     public static final ItemStack SKELETONHELMET = genItem(Material.NETHERITE_HELMET,Enchantment.PROTECTION_ENVIRONMENTAL,5,"SKELETON-HELMET",0x051A57);
 
-
-
-
-    //give @p knowledge_book{Enchantments:[{id:"minecraft:unbreaking",lvl:4s}],display:{Name:'{"color":"#FFFD72","text":"压缩知识之书"}'}} 1
+//give @p knowledge_book{Enchantments:[{id:"minecraft:unbreaking",lvl:4s}],display:{Name:'{"color":"#FFFD72","text":"压缩知识之书"}'}} 1
 //give @p enchanted_golden_apple{Enchantments:[{id:"minecraft:unbreaking",lvl:4s}],display:{Name:'{"color":"#EB5D2F","text":"真 附魔金苹果"}'}} 1
 /*
     // Component to text

@@ -17,12 +17,13 @@ public class CreeperFindPath implements Listener {
         if (pe.getEntityType().equals(EntityType.CREEPER) && pe.getTargetEntity() instanceof Player) {
             if (getEntityDistance(pe.getEntity(), pe.getTargetEntity()) <= 5) {
                 int chance = (int) (random() * 1000 + 1);
-                if (chance <= 25) {
+                if (chance <= 50) {
                     PotionEffect resistance = new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 20, 5, false, false);
                     Creeper sss = (Creeper) pe.getEntity();
                     sss.addPotionEffect(resistance);
                     Player pl = (Player) pe.getTargetEntity();
-                    TNTPrimed tnt = (TNTPrimed) pl.getWorld().spawnEntity(getEntityMiddle(pl, sss), EntityType.PRIMED_TNT);
+                    Creeper cre =(Creeper) pl.getWorld().spawnEntity(getEntityMiddle(pl, sss), EntityType.CREEPER);
+                    cre.setFuseTicks(1);
                 }
             }
         }

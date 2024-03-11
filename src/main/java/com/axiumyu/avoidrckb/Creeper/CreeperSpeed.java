@@ -24,17 +24,21 @@ public class CreeperSpeed implements Listener {
                 ssw.setPowered(false);
                 ssw.setSilent(true);
                 ssw.setInvisible(true);
-            } else if (chance <= 10) {
+            } else if (chance <= 50) {
                 ssw.addPotionEffect(speed2);
-            } else if (chance <= 100) {
+            } else if (chance <= 200) {
                 ssw.addPotionEffect(speed1);
             }
-//        } else if (se.getEntityType().equals(EntityType.SKELETON) && se.getSpawnReason().equals(CreatureSpawnEvent.SpawnReason.NATURAL)) {
+        } //else if (se.getEntityType().equals(EntityType.SKELETON) && se.getSpawnReason().equals(CreatureSpawnEvent.SpawnReason.NATURAL)) {
 //            Skeleton sk =(Skeleton) se.getEntity();
-//            if (chance<100){
+//            if (chance<5){
 //                EntityEquipment equipment = sk.getEquipment();
-//
+//                equipment.setHelmet(genItem(Material.NETHERITE_HELMET, Enchantment.PROTECTION_ENVIRONMENTAL,5));
+//                equipment.setChestplate(genItem(Material.NETHERITE_CHESTPLATE,Enchantment.PROTECTION_ENVIRONMENTAL,5));
+//                equipment.setLeggings(genItem(Material.NETHERITE_LEGGINGS,Enchantment.PROTECTION_ENVIRONMENTAL,5));
+//                equipment.setBoots(genItem(Material.NETHERITE_BOOTS,Enchantment.PROTECTION_ENVIRONMENTAL,5));
+//                getServer().sendMessage(Component.text("A SKELETON HAS BECOME KING...").color(TextColor.color(0x1D1C30)));
 //            }
-        }
+//        }
     }
 }
