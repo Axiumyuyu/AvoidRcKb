@@ -7,9 +7,11 @@ import org.bukkit.event.entity.EntityPoseChangeEvent;
 
 import java.util.Collection;
 
+import static com.axiumyu.avoidrckb.AvoidRcKb.ItemMagnetDistance;
 import static com.axiumyu.avoidrckb.AxiumyuUtil.MAGNET;
 
 public class ItemMagnet implements Listener {
+
 
     @EventHandler
     public void onShiftPress(EntityPoseChangeEvent ep) {
@@ -18,12 +20,12 @@ public class ItemMagnet implements Listener {
             if (ep.getEntityType() == EntityType.PLAYER && ep.getPose().equals(Pose.SNEAKING)) {
                 Player pl = (Player) ep.getEntity();
 
-                if (AxiumyuUtil.contains(ep,MAGNET)) {
+                if (AxiumyuUtil.contains(pl, MAGNET)) {
                     Collection<Entity> entityNearBy = pl.getWorld().getEntitiesByClasses(Item.class);
 
                     for (Entity et : entityNearBy) {
 
-                        if (AxiumyuUtil.getEntityDistance(pl, et) <= 10) {
+                        if (AxiumyuUtil.getEntityDistance(pl, et) <= ItemMagnetDistance) {
                             et.teleport(pl);
                         }
                     }
@@ -33,4 +35,6 @@ public class ItemMagnet implements Listener {
 
         }
     }
+
+
 }

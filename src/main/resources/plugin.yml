@@ -3,3 +3,8 @@ version: '${project.version}'
 main: com.axiumyu.avoidrckb.AvoidRcKb
 api-version: '1.20'
 load: STARTUP
+commands:
+  distance:
+    description: Your description
+    usage: /distance <set> <distance>
+    permission: AvoidRcKb.distance
